@@ -1,4 +1,3 @@
-
 // Camelot Condominiums Progress Tracker - Javascript Logic
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -271,14 +270,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const detailsPanel = document.getElementById('detailsPanel');
   let currentProject = 'fences';
 
-  // Hardcoded project assignments for simplicity
   const projectAssignments = {};
-  buildingsData.forEach(b => {
-      projectAssignments[b.id] = { fences: 'completed', landscaping: 'now', siding: 'next', roofs: 'later' };
+  const phases = ['completed', 'now', 'next', 'later'];
+  buildingsData.forEach((b, idx) => {
+      // Dummy logic to assign random statuses for demo
+      projectAssignments[b.id] = { 
+          fences: phases[idx % 4], 
+          landscaping: phases[(idx+1) % 4], 
+          siding: phases[(idx+2) % 4], 
+          roofs: phases[(idx+3) % 4] 
+      };
   });
 
+  // Interp logic for unit division
   function getUnitCoords(coordsStr, totalUnits, index) {
-      if (!coordsStr) return "";
+      if (!coordsStr || totalUnits <= 1) return coordsStr;
       const pts = coordsStr.split(' ').map(p => p.split(',').map(Number));
       if (pts.length !== 4) return coordsStr;
       
@@ -300,117 +306,72 @@ document.addEventListener('DOMContentLoaded', () => {
       if(!svgOverlay) return;
       svgOverlay.innerHTML = '';
       buildingsData.forEach(b => {
-          const totalUnits = Math.max(1, Math.abs(b.endUnit - b.startUnit) + 1);
+          const totalUnits = (b.id === 'mf') ? 1 : Math.max(1, Math.abs(b.endUnit - b.startUnit) + 1);
           const isDesc = b.endUnit < b.startUnit;
           for (let i = 0; i < totalUnits; i++) {
-              const uNum = b.startUnit + (isDesc ? -i : i);
+              const uNum = (b.id === 'mf') ? 'MF' : b.startUnit + (isDesc ? -i : i);
               const uCoords = getUnitCoords(b.coords, totalUnits, i);
               const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
               poly.setAttribute('points', uCoords);
               poly.setAttribute('class', `map-building ${projectAssignments[b.id][currentProject]}`);
               poly.setAttribute('data-id', b.id);
               poly.setAttribute('data-unit', uNum);
+              
+              // Tooltip and interactions
+              poly.addEventListener('mouseover', (e) => {
+                  tooltip.style.opacity = '1';
+                  tooltip.innerHTML = `<strong>${b.name}</strong><br>Unit: ${uNum}<br>Status: ${projectAssignments[b.id][currentProject]}`;
+              });
+              
+              poly.addEventListener('mousemove', (e) => {
+                  tooltip.style.left = e.pageX + 10 + 'px';
+                  tooltip.style.top = e.pageY + 10 + 'px';
+              });
+              
+              poly.addEventListener('mouseout', () => {
+                  tooltip.style.opacity = '0';
+              });
+              
+              poly.addEventListener('click', () => {
+                  // Select building in details panel
+                  document.getElementById('detailBldgName').textContent = b.name;
+                  document.getElementById('detailStreet').textContent = b.street;
+                  document.getElementById('detailUnits').textContent = b.units;
+                  document.getElementById('detailPhase').textContent = projectAssignments[b.id][currentProject];
+                  document.getElementById('detailStatusBadge').textContent = projectAssignments[b.id][currentProject];
+                  
+                  // Remove selected class from all
+                  svgOverlay.querySelectorAll('.map-building').forEach(p => p.classList.remove('selected'));
+                  // Add to all units of this building
+                  svgOverlay.querySelectorAll(`.map-building[data-id="${b.id}"]`).forEach(p => p.classList.add('selected'));
+              });
+              
               svgOverlay.appendChild(poly);
           }
       });
   }
 
-const mobileToggle = document.getElementById('mobileToggle');
-  const navMenu = document.getElementById('navMenu');
-
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      const icon = mobileToggle.querySelector('i');
-      if (navMenu.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-xmark');
-      } else {
-        icon.classList.remove('fa-xmark');
-        icon.classList.add('fa-bars');
-      }
-    });
-
-    // Close mobile menu when links are clicked
-    navMenu.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        const icon = mobileToggle.querySelector('i');
-        icon.classList.remove('fa-xmark');
-        icon.classList.add('fa-bars');
+  // Project Tabs Logic
+  const tabs = document.querySelectorAll('.project-tab');
+  tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          currentProject = tab.dataset.project;
+          renderMapOverlays();
       });
-    });
-  }
-
-  // 2. Cursor-Tracking Spotlight Effect for Cards
-  const cards = document.querySelectorAll('.project-card');
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--x', `${x}px`);
-      card.style.setProperty('--y', `${y}px`);
-    });
   });
 
-  // 3. Dynamic Tag Filtering
-  const tags = d
-      const filterText = tag.textContent.trim();
-      
-      // Toggle active styling or filter cards
-      let tagActive = tag.classList.toggle('active-filter');
-      
-      if (tagActive) {
-        tag.style.borderColor = 'var(--accent-gold)';
-        tag.style.color = 'var(--accent-gold)';
-        tag.style.backgroundColor = 'rgba(234, 179, 8, 0.05)';
-        
-        // Filter cards containing this tag
-        filterCards(filterText);
-      } else {
-        tag.style.borderColor = 'var(--border-color)';
-        tag.style.color = 'var(--text-secondary)';
-        tag.style.backgroundColor = 'rgba(255, 255, 255, 0.03)';
-        
-        // Reset filter
-        resetFilters();
-      }
-    });
-  });
-
-  function filterCards(filterText) {
-    cards.forEach(card => {
-      const cardTags = Array.from(card.querySelectorAll('.tag')).map(t => t.textContent.trim());
-      if (cardTags.includes(filterText)) {
-        card.style.opacity = '1';
-        card.style.transform = 'scale(1)';
-        card.style.pointerEvents = 'all';
-      } else {
-        card.style.opacity = '0.2';
-        card.style.transform = 'scale(0.98)';
-        card.style.pointerEvents = 'none';
-      }
-    });
+  // Mapper toggle logic
+  const toggleBtn = document.getElementById('toggleMapper');
+  const mapperPanel = document.getElementById('mapperPanel');
+  if (toggleBtn && mapperPanel) {
+      toggleBtn.addEventListener('click', () => {
+          const isHidden = mapperPanel.getAttribute('aria-hidden') === 'true';
+          mapperPanel.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
+      });
   }
 
-  function resetFilters() {
-    cards.forEach(card => {
-      card.style.opacity = '1';
-      card.style.transform = 'none';
-      card.style.pointerEvents = 'all';
-    });
-    // Remove active styles from other tags
-    tags.forEach(t => {
-      t.classList.remove('active-filter');
-      t.style.borderColor = 'var(--border-color)';
-      t.style.color = 'var(--text-secondary)';
-      t.style.backgroundColor = 'rgba(255, 255, 255, 0.03)';
-    });
-  }
-});
-
-  
-  // Call initially
+  // Initialize
   renderMapOverlays();
 });
