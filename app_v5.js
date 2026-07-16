@@ -268,12 +268,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const svgOverlay = document.getElementById('svgOverlay');
   const tooltip = document.getElementById('mapTooltip');
   const detailsPanel = document.getElementById('detailsPanel');
+  
+  const emptyDetails = document.getElementById('emptyDetails');
+  const detailsCard = document.getElementById('detailsCard');
+  const detailBldgName = document.getElementById('detailBldgName');
+  const detailRoadBadge = document.getElementById('detailRoadBadge');
+  const detailUnits = document.getElementById('detailUnits');
+  const detailProjectTitle = document.getElementById('detailProjectTitle');
+  const detailStatusBadge = document.getElementById('detailStatusBadge');
+  const detailPhase = document.getElementById('detailPhase');
+  const detailDesc = document.getElementById('detailDesc');
+
   let currentProject = 'fences';
 
   const projectAssignments = {};
   const phases = ['completed', 'now', 'next', 'later'];
   buildingsData.forEach((b, idx) => {
-      // Dummy logic to assign random statuses for demo
       projectAssignments[b.id] = { 
           fences: phases[idx % 4], 
           landscaping: phases[(idx+1) % 4], 
@@ -282,7 +292,11 @@ document.addEventListener('DOMContentLoaded', () => {
       };
   });
 
-  // Interp logic for unit division
+  function capitalize(str) {
+      if(!str) return '';
+      return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   function getUnitCoords(coordsStr, totalUnits, index) {
       if (!coordsStr || totalUnits <= 1) return coordsStr;
       const pts = coordsStr.split(' ').map(p => p.split(',').map(Number));
@@ -317,10 +331,13 @@ document.addEventListener('DOMContentLoaded', () => {
               poly.setAttribute('data-id', b.id);
               poly.setAttribute('data-unit', uNum);
               
-              // Tooltip and interactions
               poly.addEventListener('mouseover', (e) => {
-                  tooltip.style.opacity = '1';
-                  tooltip.innerHTML = `<strong>${b.name}</strong><br>Unit: ${uNum}<br>Status: ${projectAssignments[b.id][currentProject]}`;
+                  tooltip.classList.add('visible');
+                  tooltip.innerHTML = `
+                    <div class="tooltip-title">${b.name}</div>
+                    <div class="tooltip-street">${b.street} | Unit ${uNum}</div>
+                    <div class="tooltip-phase">Phase: ${capitalize(projectAssignments[b.id][currentProject])}</div>
+                  `;
               });
               
               poly.addEventListener('mousemove', (e) => {
@@ -329,20 +346,27 @@ document.addEventListener('DOMContentLoaded', () => {
               });
               
               poly.addEventListener('mouseout', () => {
-                  tooltip.style.opacity = '0';
+                  tooltip.classList.remove('visible');
               });
               
               poly.addEventListener('click', () => {
-                  // Select building in details panel
-                  document.getElementById('detailBldgName').textContent = b.name;
-                  document.getElementById('detailStreet').textContent = b.street;
-                  document.getElementById('detailUnits').textContent = b.units;
-                  document.getElementById('detailPhase').textContent = projectAssignments[b.id][currentProject];
-                  document.getElementById('detailStatusBadge').textContent = projectAssignments[b.id][currentProject];
+                  emptyDetails.style.display = 'none';
+                  detailsCard.style.display = 'block';
+
+                  detailBldgName.textContent = b.name;
+                  detailRoadBadge.textContent = b.street;
+                  detailUnits.textContent = `Units ${b.units}`;
                   
-                  // Remove selected class from all
+                  const phaseStatus = projectAssignments[b.id][currentProject];
+                  detailProjectTitle.textContent = capitalize(currentProject);
+                  detailStatusBadge.textContent = capitalize(phaseStatus);
+                  detailStatusBadge.className = `project-phase-badge ${phaseStatus}`;
+                  detailsCard.className = `active-project-card ${phaseStatus}`;
+                  
+                  detailPhase.textContent = `Phase Status: ${capitalize(phaseStatus)}`;
+                  detailDesc.textContent = `This building is scheduled for ${currentProject} updates during the ${phaseStatus} phase.`;
+                  
                   svgOverlay.querySelectorAll('.map-building').forEach(p => p.classList.remove('selected'));
-                  // Add to all units of this building
                   svgOverlay.querySelectorAll(`.map-building[data-id="${b.id}"]`).forEach(p => p.classList.add('selected'));
               });
               
@@ -351,18 +375,39 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // Project Tabs Logic
-  const tabs = document.querySelectorAll('.project-tab');
+  const tabs = document.querySelectorAll('.tab-btn');
   tabs.forEach(tab => {
       tab.addEventListener('click', () => {
           tabs.forEach(t => t.classList.remove('active'));
           tab.classList.add('active');
           currentProject = tab.dataset.project;
+          
+          // update details panel if a building is selected
+          const activeBuildingPoly = document.querySelector('.map-building.selected');
+          if (activeBuildingPoly) {
+             const bId = activeBuildingPoly.getAttribute('data-id');
+             const b = buildingsData.find(x => x.id === bId);
+             if (b) {
+                  const phaseStatus = projectAssignments[b.id][currentProject];
+                  detailProjectTitle.textContent = capitalize(currentProject);
+                  detailStatusBadge.textContent = capitalize(phaseStatus);
+                  detailStatusBadge.className = `project-phase-badge ${phaseStatus}`;
+                  detailsCard.className = `active-project-card ${phaseStatus}`;
+                  detailPhase.textContent = `Phase Status: ${capitalize(phaseStatus)}`;
+                  detailDesc.textContent = `This building is scheduled for ${currentProject} updates during the ${phaseStatus} phase.`;
+             }
+          }
+          
           renderMapOverlays();
+          
+          // Re-apply selection to the same building after re-rendering
+          if (activeBuildingPoly) {
+              const bId = activeBuildingPoly.getAttribute('data-id');
+              svgOverlay.querySelectorAll(`.map-building[data-id="${bId}"]`).forEach(p => p.classList.add('selected'));
+          }
       });
   });
 
-  // Mapper toggle logic
   const toggleBtn = document.getElementById('toggleMapper');
   const mapperPanel = document.getElementById('mapperPanel');
   if (toggleBtn && mapperPanel) {
@@ -372,6 +417,5 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // Initialize
   renderMapOverlays();
 });

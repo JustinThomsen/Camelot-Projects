@@ -24,59 +24,62 @@
 
       <section class="project-tabs-container">
         <span class="section-label">Select Project</span>
-        <div class="project-tabs" id="projectTabs" role="tablist">
-          <button class="project-tab active" data-project="fences" role="tab" aria-selected="true">
+        <div class="project-tabs-grid" id="projectTabs" role="tablist">
+          <button class="tab-btn active" data-project="fences" role="tab" aria-selected="true">
             <i class="fa-solid fa-bars-staggered"></i> Fences
           </button>
-          <button class="project-tab" data-project="landscaping" role="tab" aria-selected="false">
+          <button class="tab-btn" data-project="landscaping" role="tab" aria-selected="false">
             <i class="fa-solid fa-leaf"></i> Landscaping
           </button>
-          <button class="project-tab" data-project="siding" role="tab" aria-selected="false">
+          <button class="tab-btn" data-project="siding" role="tab" aria-selected="false">
             <i class="fa-solid fa-house"></i> Siding
           </button>
-          <button class="project-tab" data-project="roofs" role="tab" aria-selected="false">
+          <button class="tab-btn" data-project="roofs" role="tab" aria-selected="false">
             <i class="fa-solid fa-house-chimney"></i> Roofs
           </button>
         </div>
       </section>
 
-      <section class="details-panel" id="detailsPanel">
-        <div class="details-header">
-          <h2 id="detailBldgName">Select a Building</h2>
-          <span class="status-badge" id="detailStatusBadge">--</span>
-        </div>
-        <div class="details-body">
-          <div class="detail-row">
-            <span class="detail-label">Street</span>
-            <span class="detail-value" id="detailStreet">--</span>
-          </div>
-          <div class="detail-row">
-            <span class="detail-label">Units</span>
-            <span class="detail-value" id="detailUnits">--</span>
-          </div>
-          <div class="detail-row">
-            <span class="detail-label">Current Phase</span>
-            <span class="detail-value" id="detailPhase">--</span>
-          </div>
+      <section class="legend-section">
+        <span class="section-label">Status Legend</span>
+        <div class="legend-list">
+          <div class="legend-item"><span class="legend-color completed"></span> Completed (Phase 1 & 2)</div>
+          <div class="legend-item"><span class="legend-color now"></span> In Progress (Phase 3)</div>
+          <div class="legend-item"><span class="legend-color next"></span> Scheduled Next (Phase 4)</div>
+          <div class="legend-item"><span class="legend-color later"></span> Planned (Phase 5+)</div>
         </div>
       </section>
 
-      <section class="legend-panel">
-        <h3 class="legend-title">Status Legend</h3>
-        <ul class="legend-list">
-          <li><span class="legend-color completed"></span> Completed (Phase 1 & 2)</li>
-          <li><span class="legend-color now"></span> In Progress (Phase 3)</li>
-          <li><span class="legend-color next"></span> Scheduled Next (Phase 4)</li>
-          <li><span class="legend-color later"></span> Planned (Phase 5+)</li>
-        </ul>
+      <section class="details-section" id="detailsPanel">
+        <div class="empty-details" id="emptyDetails">
+          <i class="fa-solid fa-hand-pointer details-empty-icon"></i>
+          <h3>Select a Building</h3>
+          <p>Click on any building on the map to view its specific project status and details.</p>
+        </div>
+        
+        <div class="active-project-card" id="detailsCard" style="display: none;">
+          <div class="details-card-header">
+            <h2 class="details-building-name" id="detailBldgName">--</h2>
+            <span class="details-road-badge" id="detailRoadBadge">--</span>
+          </div>
+          <div class="details-units">
+            <i class="fa-solid fa-door-open"></i> <span id="detailUnits">--</span>
+          </div>
+          
+          <div class="active-project-title-row">
+            <span class="project-tag-icon" id="detailProjectTitle">Project</span>
+            <span class="project-phase-badge" id="detailStatusBadge">--</span>
+          </div>
+          <div class="project-phase-schedule" id="detailPhase">Phase --</div>
+          <p class="project-phase-desc" id="detailDesc">Details will appear here.</p>
+        </div>
       </section>
-
     </aside>
 
-    <main class="map-area">
-      <div class="map-wrapper" id="mapWrapper">
-        <img src="camelot_map.jpg" alt="Camelot Condominiums Map" class="base-map" id="baseMap">
-        <svg class="map-svg-overlay" id="svgOverlay" preserveAspectRatio="none">
+    <main class="map-view-panel">
+      <div class="map-viewport" id="mapWrapper">
+        <img src="camelot_map.jpg" alt="Camelot Condominiums Map" class="map-image" id="baseMap">
+        <svg class="svg-overlay-layer" id="svgOverlay" viewBox="0 0 789 1024" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
           <!-- Dynamic polygons generated by app.js -->
         </svg>
       </div>
