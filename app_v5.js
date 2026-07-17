@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2560 - 2563",
     "startUnit": 2560,
     "endUnit": 2563,
-    "coords": "664,683 601,683 601,595 664,595"
+    "coords": "669,617 639,599 600,667 630,685"
   },
 {
     "id": "b19",
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2570 - 2574",
     "startUnit": 2570,
     "endUnit": 2574,
-    "coords": "623,753 546,753 546,671 623,671"
+    "coords": "631,699 594,677 549,753 587,775"
   },
 {
     "id": "b20",
@@ -252,15 +252,6 @@ document.addEventListener('DOMContentLoaded', () => {
     "startUnit": 2500,
     "endUnit": 2504,
     "coords": "183,489 91,489 91,451 183,451"
-  },
-{
-    "id": "mf",
-    "name": "Maintenance Facility",
-    "street": "Stratford Drive",
-    "units": "MF",
-    "startUnit": 0,
-    "endUnit": 0,
-    "coords": "695,805 655,765 675,745 715,785"
   }];
 
   const svgOverlay = document.getElementById('svgOverlay');
@@ -309,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
           
           poly.addEventListener('mouseover', (e) => {
               tooltip.classList.add('visible');
-              const unitLabel = (b.id === 'mf') ? 'MF' : `Units ${b.units}`;
+              const unitLabel = `Units ${b.units}`;
               tooltip.innerHTML = `
                 <div class="tooltip-title">${b.name}</div>
                 <div class="tooltip-street">${b.street} | ${unitLabel}</div>
