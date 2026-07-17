@@ -1,0 +1,6 @@
+{
+  "SessionStart": [
+    "nvm install",
+    "npm ci"
+  ]
+}
