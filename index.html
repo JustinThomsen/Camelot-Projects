@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style_v5.css?v=1003">
+  <link rel="stylesheet" href="style_v5.css?v=1006">
 </head>
 <body>
   <div class="app-container">
@@ -23,30 +23,73 @@
       </header>
 
       <section class="project-tabs-container">
-        <span class="section-label">Select Project</span>
+        <span class="section-label">SELECT PROJECT PLAN</span>
         <div class="project-tabs-grid" id="projectTabs" role="tablist">
           <button class="tab-btn active" data-project="fences" role="tab" aria-selected="true">
             <i class="fa-solid fa-bars-staggered"></i> Fences
           </button>
           <button class="tab-btn" data-project="landscaping" role="tab" aria-selected="false">
-            <i class="fa-solid fa-leaf"></i> Landscaping
+            <i class="fa-solid fa-tree"></i> Landscaping
           </button>
           <button class="tab-btn" data-project="siding" role="tab" aria-selected="false">
             <i class="fa-solid fa-house"></i> Siding
           </button>
-          <button class="tab-btn" data-project="roofs" role="tab" aria-selected="false">
-            <i class="fa-solid fa-house-chimney"></i> Roofs
+          <button class="tab-btn" data-project="chimneys" role="tab" aria-selected="false">
+            <i class="fa-solid fa-fire"></i> Chimneys
           </button>
+          <button class="tab-btn" data-project="roofs" role="tab" aria-selected="false">Roofs</button>
         </div>
       </section>
 
       <section class="legend-section">
-        <span class="section-label">Status Legend</span>
+        <span class="section-label">SCHEDULE SCHEDULE & DISTRIBUTION</span>
         <div class="legend-list">
-          <div class="legend-item"><span class="legend-color completed"></span> Completed (Phase 1 & 2)</div>
-          <div class="legend-item"><span class="legend-color now"></span> In Progress (Phase 3)</div>
-          <div class="legend-item"><span class="legend-color next"></span> Scheduled Next (Phase 4)</div>
-          <div class="legend-item"><span class="legend-color later"></span> Planned (Phase 5+)</div>
+          <div class="legend-item completed" data-phase="completed">
+            <div class="legend-color-label">
+              <span class="phase-dot"></span>
+              <div>
+                <div class="legend-title">Completed</div>
+                <div class="legend-schedule">Project Substantially Completed</div>
+              </div>
+            </div>
+            <div class="legend-count" id="count-completed">0 (0%)</div>
+          </div>
+          <div class="legend-item now" data-phase="now">
+            <div class="legend-color-label">
+              <span class="phase-dot"></span>
+              <div>
+                <div class="legend-title">Now</div>
+                <div class="legend-schedule">Active Phase (2026)</div>
+              </div>
+            </div>
+            <div class="legend-count" id="count-now">0 (0%)</div>
+          </div>
+          <div class="legend-item next" data-phase="next">
+            <div class="legend-color-label">
+              <span class="phase-dot"></span>
+              <div>
+                <div class="legend-title">Next</div>
+                <div class="legend-schedule">Upcoming (2027 - 2028)</div>
+              </div>
+            </div>
+            <div class="legend-count" id="count-next">0 (0%)</div>
+          </div>
+          <div class="legend-item later" data-phase="later">
+            <div class="legend-color-label">
+              <span class="phase-dot"></span>
+              <div>
+                <div class="legend-title">Later</div>
+                <div class="legend-schedule">Long-Term (2029+)</div>
+              </div>
+            </div>
+            <div class="legend-count" id="count-later">0 (0%)</div>
+          </div>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-segment completed" id="bar-completed" style="width: 0%"></div>
+          <div class="progress-segment now" id="bar-now" style="width: 0%"></div>
+          <div class="progress-segment next" id="bar-next" style="width: 0%"></div>
+          <div class="progress-segment later" id="bar-later" style="width: 0%"></div>
         </div>
       </section>
 
@@ -118,6 +161,6 @@
       </div>
     </main>
   </div>
-  <script src="app_v5.js?v=1003"></script>
+  <script src="app_v5.js?v=1005"></script>
 </body>
 </html>

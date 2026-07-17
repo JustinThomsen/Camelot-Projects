@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2520 - 2524",
     "startUnit": 2520,
     "endUnit": 2524,
-    "coords": "444,93 358,93 358,63 444,63"
+    "coords": "444,101 358,101 358,63 444,63"
   },
 {
     "id": "b12",
@@ -278,6 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const detailDesc = document.getElementById('detailDesc');
 
   let currentProject = 'fences';
+  let activePhaseFilter = null;
 
   const projectAssignments = {};
   const phases = ['completed', 'now', 'next', 'later'];
@@ -286,6 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
           fences: phases[idx % 4], 
           landscaping: phases[(idx+1) % 4], 
           siding: phases[(idx+2) % 4], 
+          chimneys: idx < 4 ? 'completed' : (idx < 7 ? 'now' : (idx < 13 ? 'next' : 'later')),
           roofs: phases[(idx+3) % 4] 
       };
   });
@@ -316,8 +318,8 @@ document.addEventListener('DOMContentLoaded', () => {
           });
           
           poly.addEventListener('mousemove', (e) => {
-              tooltip.style.left = e.pageX + 10 + 'px';
-              tooltip.style.top = e.pageY + 10 + 'px';
+              tooltip.style.left = e.clientX + 10 + 'px';
+              tooltip.style.top = e.clientY + 10 + 'px';
           });
           
           poly.addEventListener('mouseout', () => {
@@ -347,6 +349,54 @@ document.addEventListener('DOMContentLoaded', () => {
           
           svgOverlay.appendChild(poly);
       });
+      applyFilter();
+  }
+
+  function applyFilter() {
+      const polygons = svgOverlay.querySelectorAll('.map-building');
+      polygons.forEach(poly => {
+          const bId = poly.getAttribute('data-id');
+          const phase = projectAssignments[bId][currentProject];
+          if (activePhaseFilter) {
+              if (phase === activePhaseFilter) {
+                  poly.classList.add('focused');
+                  poly.classList.remove('dimmed');
+              } else {
+                  poly.classList.add('dimmed');
+                  poly.classList.remove('focused');
+              }
+          } else {
+              poly.classList.remove('focused');
+              poly.classList.remove('dimmed');
+          }
+      });
+  }
+
+  function updateStats() {
+      const counts = { completed: 0, now: 0, next: 0, later: 0 };
+      buildingsData.forEach(b => {
+          const phase = projectAssignments[b.id][currentProject];
+          if (counts[phase] !== undefined) {
+              counts[phase]++;
+          }
+      });
+      
+      const total = buildingsData.length;
+      
+      for (const phase in counts) {
+          const count = counts[phase];
+          const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
+          
+          const countElem = document.getElementById(`count-${phase}`);
+          if (countElem) {
+              countElem.textContent = `${count} (${percentage}%)`;
+          }
+          
+          const barElem = document.getElementById(`bar-${phase}`);
+          if (barElem) {
+              barElem.style.width = `${percentage}%`;
+          }
+      }
   }
 
   const tabs = document.querySelectorAll('.tab-btn');
@@ -373,12 +423,29 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           
           renderMapOverlays();
+          updateStats();
           
           // Re-apply selection to the same building after re-rendering
           if (activeBuildingPoly) {
               const bId = activeBuildingPoly.getAttribute('data-id');
               svgOverlay.querySelectorAll(`.map-building[data-id="${bId}"]`).forEach(p => p.classList.add('selected'));
           }
+      });
+  });
+
+  const legendItems = document.querySelectorAll('.legend-item');
+  legendItems.forEach(item => {
+      item.addEventListener('click', () => {
+          const phase = item.dataset.phase;
+          if (activePhaseFilter === phase) {
+              activePhaseFilter = null;
+              item.classList.remove('highlighted');
+          } else {
+              legendItems.forEach(li => li.classList.remove('highlighted'));
+              activePhaseFilter = phase;
+              item.classList.add('highlighted');
+          }
+          applyFilter();
       });
   });
 
@@ -392,4 +459,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   renderMapOverlays();
+  updateStats();
 });
