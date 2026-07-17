@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2500 - 2505",
     "startUnit": 2500,
     "endUnit": 2505,
-    "coords": "182,367 141,356 170,250 211,261"
+    "coords": "182,367 141,356 170,250 211,261",
+    "singleOutline": true
   },
 {
     "id": "b2",
@@ -27,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2512 - 2520",
     "startUnit": 2512,
     "endUnit": 2520,
-    "coords": "137,185 89,185 89,47 137,47"
+    "coords": "137,185 89,185 89,47 137,47",
+    "singleOutline": true
   },
 {
     "id": "b4",
@@ -36,7 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2541 - 2545",
     "startUnit": 2541,
     "endUnit": 2545,
-    "coords": "196,138 184,41 226,36 238,133"
+    "coords": "196,138 184,41 226,36 238,133",
+    "singleOutline": true
   },
 {
     "id": "b5",
@@ -45,7 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2531 - 2536",
     "startUnit": 2531,
     "endUnit": 2536,
-    "coords": "267,197 157,197 157,156 267,156"
+    "coords": "267,197 157,197 157,156 267,156",
+    "singleOutline": true
   },
 {
     "id": "b6",
