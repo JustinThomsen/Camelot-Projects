@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2500 - 2505",
     "startUnit": 2500,
     "endUnit": 2505,
-    "coords": "182,367 141,356 170,250 211,261",
-    "singleOutline": true
+    "coords": "182,367 141,356 170,250 211,261"
   },
 {
     "id": "b2",
@@ -18,8 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2506 - 2511",
     "startUnit": 2506,
     "endUnit": 2511,
-    "coords": "117,326 76,315 106,207 147,219",
-    "singleOutline": true
+    "coords": "117,326 76,315 106,207 147,219"
   },
 {
     "id": "b3",
@@ -28,8 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2512 - 2520",
     "startUnit": 2512,
     "endUnit": 2520,
-    "coords": "137,185 89,185 89,47 137,47",
-    "singleOutline": true
+    "coords": "137,185 89,185 89,47 137,47"
   },
 {
     "id": "b4",
@@ -38,8 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2541 - 2545",
     "startUnit": 2541,
     "endUnit": 2545,
-    "coords": "196,138 184,41 226,36 238,133",
-    "singleOutline": true
+    "coords": "196,138 184,41 226,36 238,133"
   },
 {
     "id": "b5",
@@ -48,8 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2531 - 2536",
     "startUnit": 2531,
     "endUnit": 2536,
-    "coords": "267,197 157,197 157,156 267,156",
-    "singleOutline": true
+    "coords": "267,197 157,197 157,156 267,156"
   },
 {
     "id": "b6",
@@ -67,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2540 - 2543",
     "startUnit": 2540,
     "endUnit": 2543,
-    "coords": "352,202 344,171 439,147 447,178"
+    "coords": "361,205 283,205 283,171 361,171"
   },
 {
     "id": "b8",
@@ -76,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2550 - 2553",
     "startUnit": 2550,
     "endUnit": 2553,
-    "coords": "444,168 369,168 369,151 444,151"
+    "coords": "444,185 366,185 366,151 444,151"
   },
 {
     "id": "b9",
@@ -300,82 +295,57 @@ document.addEventListener('DOMContentLoaded', () => {
       return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-  function getUnitCoords(coordsStr, totalUnits, index) {
-      if (!coordsStr || totalUnits <= 1) return coordsStr;
-      const pts = coordsStr.split(' ').map(p => p.split(',').map(Number));
-      if (pts.length !== 4) return coordsStr;
-      
-      const [p0, p1, p2, p3] = pts;
-      function interp(A, B, t) {
-          return [Math.round(A[0] + t*(B[0]-A[0])), Math.round(A[1] + t*(B[1]-A[1]))];
-      }
-      const t0 = index/totalUnits;
-      const t1 = (index+1)/totalUnits;
-      
-      const pt0 = interp(p0, p3, t0);
-      const pt1 = interp(p1, p2, t0);
-      const pt2 = interp(p1, p2, t1);
-      const pt3 = interp(p0, p3, t1);
-      return `${pt0[0]},${pt0[1]} ${pt1[0]},${pt1[1]} ${pt2[0]},${pt2[1]} ${pt3[0]},${pt3[1]}`;
-  }
-
   function renderMapOverlays() {
       if(!svgOverlay) return;
       svgOverlay.innerHTML = '';
       buildingsData.forEach(b => {
-          const totalUnits = (b.id === 'mf' || b.singleOutline) ? 1 : Math.max(1, Math.abs(b.endUnit - b.startUnit) + 1);
-          const isDesc = b.endUnit < b.startUnit;
-          for (let i = 0; i < totalUnits; i++) {
-              const uNum = (b.id === 'mf') ? 'MF' : b.startUnit + (isDesc ? -i : i);
-              const uCoords = getUnitCoords(b.coords, totalUnits, i);
-              const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-              poly.setAttribute('points', uCoords);
-              poly.setAttribute('class', `map-building ${projectAssignments[b.id][currentProject]}`);
-              poly.setAttribute('data-id', b.id);
-              poly.setAttribute('data-unit', uNum);
-              
-              poly.addEventListener('mouseover', (e) => {
-                  tooltip.classList.add('visible');
-                  const unitLabel = b.singleOutline ? `Units ${b.units}` : `Unit ${uNum}`;
-                  tooltip.innerHTML = `
-                    <div class="tooltip-title">${b.name}</div>
-                    <div class="tooltip-street">${b.street} | ${unitLabel}</div>
-                    <div class="tooltip-phase">Phase: ${capitalize(projectAssignments[b.id][currentProject])}</div>
-                  `;
-              });
-              
-              poly.addEventListener('mousemove', (e) => {
-                  tooltip.style.left = e.pageX + 10 + 'px';
-                  tooltip.style.top = e.pageY + 10 + 'px';
-              });
-              
-              poly.addEventListener('mouseout', () => {
-                  tooltip.classList.remove('visible');
-              });
-              
-              poly.addEventListener('click', () => {
-                  emptyDetails.style.display = 'none';
-                  detailsCard.style.display = 'block';
+          const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+          poly.setAttribute('points', b.coords);
+          poly.setAttribute('class', `map-building ${projectAssignments[b.id][currentProject]}`);
+          poly.setAttribute('data-id', b.id);
+          poly.setAttribute('data-unit', b.units);
+          
+          poly.addEventListener('mouseover', (e) => {
+              tooltip.classList.add('visible');
+              const unitLabel = (b.id === 'mf') ? 'MF' : `Units ${b.units}`;
+              tooltip.innerHTML = `
+                <div class="tooltip-title">${b.name}</div>
+                <div class="tooltip-street">${b.street} | ${unitLabel}</div>
+                <div class="tooltip-phase">Phase: ${capitalize(projectAssignments[b.id][currentProject])}</div>
+              `;
+          });
+          
+          poly.addEventListener('mousemove', (e) => {
+              tooltip.style.left = e.pageX + 10 + 'px';
+              tooltip.style.top = e.pageY + 10 + 'px';
+          });
+          
+          poly.addEventListener('mouseout', () => {
+              tooltip.classList.remove('visible');
+          });
+          
+          poly.addEventListener('click', () => {
+              emptyDetails.style.display = 'none';
+              detailsCard.style.display = 'block';
 
-                  detailBldgName.textContent = b.name;
-                  detailRoadBadge.textContent = b.street;
-                  detailUnits.textContent = `Units ${b.units}`;
-                  
-                  const phaseStatus = projectAssignments[b.id][currentProject];
-                  detailProjectTitle.textContent = capitalize(currentProject);
-                  detailStatusBadge.textContent = capitalize(phaseStatus);
-                  detailStatusBadge.className = `project-phase-badge ${phaseStatus}`;
-                  detailsCard.className = `active-project-card ${phaseStatus}`;
-                  
-                  detailPhase.textContent = `Phase Status: ${capitalize(phaseStatus)}`;
-                  detailDesc.textContent = `This building is scheduled for ${currentProject} updates during the ${phaseStatus} phase.`;
-                  
-                  svgOverlay.querySelectorAll('.map-building').forEach(p => p.classList.remove('selected'));
-                  svgOverlay.querySelectorAll(`.map-building[data-id="${b.id}"]`).forEach(p => p.classList.add('selected'));
-              });
+              detailBldgName.textContent = b.name;
+              detailRoadBadge.textContent = b.street;
+              detailUnits.textContent = `Units ${b.units}`;
               
-              svgOverlay.appendChild(poly);
-          }
+              const phaseStatus = projectAssignments[b.id][currentProject];
+              detailProjectTitle.textContent = capitalize(currentProject);
+              detailStatusBadge.textContent = capitalize(phaseStatus);
+              detailStatusBadge.className = `project-phase-badge ${phaseStatus}`;
+              detailsCard.className = `active-project-card ${phaseStatus}`;
+              
+              detailPhase.textContent = `Phase Status: ${capitalize(phaseStatus)}`;
+              detailDesc.textContent = `This building is scheduled for ${currentProject} updates during the ${phaseStatus} phase.`;
+              
+              svgOverlay.querySelectorAll('.map-building').forEach(p => p.classList.remove('selected'));
+              poly.classList.add('selected');
+          });
+          
+          svgOverlay.appendChild(poly);
       });
   }
 
