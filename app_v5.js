@@ -1,260 +1,259 @@
 // Camelot Condominiums Progress Tracker - Javascript Logic
 document.addEventListener('DOMContentLoaded', () => {
 
-  const buildingsData = [
-  {
+  const buildingsData = [{
     "id": "b1",
     "name": "Building 1",
     "street": "Dover Lane",
     "units": "2500 - 2505",
     "startUnit": 2500,
     "endUnit": 2505,
-    "coords": "135,314 165,314 165,408 135,408"
+    "coords": "182,367 141,356 170,250 211,261"
   },
-  {
+{
     "id": "b2",
     "name": "Building 2",
     "street": "Dover Lane",
     "units": "2506 - 2511",
     "startUnit": 2506,
     "endUnit": 2511,
-    "coords": "68,265 98,265 98,368 68,368"
+    "coords": "117,326 76,315 106,207 147,219"
   },
-  {
+{
     "id": "b3",
     "name": "Building 3",
     "street": "Dover Lane",
     "units": "2512 - 2520",
     "startUnit": 2512,
     "endUnit": 2520,
-    "coords": "68,110 98,110 98,236 68,236"
+    "coords": "137,185 89,185 89,47 137,47"
   },
-  {
+{
     "id": "b4",
     "name": "Building 4",
     "street": "Dover Lane",
     "units": "2541 - 2545",
     "startUnit": 2541,
     "endUnit": 2545,
-    "coords": "195,100 225,100 225,188 195,188"
+    "coords": "196,138 184,41 226,36 238,133"
   },
-  {
+{
     "id": "b5",
     "name": "Building 5",
     "street": "Dover Lane",
     "units": "2531 - 2536",
     "startUnit": 2531,
     "endUnit": 2536,
-    "coords": "178,158 308,158 308,188 178,188"
+    "coords": "267,197 157,197 157,156 267,156"
   },
-  {
+{
     "id": "b6",
     "name": "Building 6",
     "street": "Essex Court",
     "units": "2530 - 2535",
     "startUnit": 2530,
     "endUnit": 2535,
-    "coords": "335,100 365,100 365,208 335,208"
+    "coords": "312,157 299,48 337,44 349,152"
   },
-  {
+{
     "id": "b7",
     "name": "Building 7",
     "street": "Essex Court",
     "units": "2540 - 2543",
     "startUnit": 2540,
     "endUnit": 2543,
-    "coords": "305,256 305,226 395,226 395,256"
+    "coords": "352,202 344,171 439,147 447,178"
   },
-  {
+{
     "id": "b8",
     "name": "Building 8",
     "street": "Essex Court",
     "units": "2550 - 2553",
     "startUnit": 2550,
     "endUnit": 2553,
-    "coords": "421,240 421,210 511,210 511,240"
+    "coords": "444,168 369,168 369,151 444,151"
   },
-  {
+{
     "id": "b9",
     "name": "Building 9",
     "street": "Essex Court",
     "units": "2500 - 2503",
     "startUnit": 2500,
     "endUnit": 2503,
-    "coords": "561,335 531,335 531,275 561,275"
+    "coords": "499,267 465,266 468,182 501,183"
   },
-  {
+{
     "id": "b10",
     "name": "Building 10",
     "street": "Essex Court",
     "units": "2510 - 2515",
     "startUnit": 2510,
     "endUnit": 2515,
-    "coords": "561,255 531,255 531,160 561,160"
+    "coords": "463,167 453,60 491,56 501,163"
   },
-  {
+{
     "id": "b11",
     "name": "Building 11",
     "street": "Essex Court",
     "units": "2520 - 2524",
     "startUnit": 2520,
     "endUnit": 2524,
-    "coords": "401,150 401,120 501,120 501,150"
+    "coords": "444,93 358,93 358,63 444,63"
   },
-  {
+{
     "id": "b12",
     "name": "Building 12",
     "street": "Bristol Terrace",
     "units": "2550 - 2554",
     "startUnit": 2550,
     "endUnit": 2554,
-    "coords": "655,545 655,515 755,515 755,545"
+    "coords": "562,594 507,573 544,474 599,495"
   },
-  {
+{
     "id": "b13",
     "name": "Building 13",
     "street": "Bristol Terrace",
     "units": "2540 - 2543",
     "startUnit": 2540,
     "endUnit": 2543,
-    "coords": "715,485 715,455 795,455 795,485"
+    "coords": "674,487 596,487 596,441 674,441"
   },
-  {
+{
     "id": "b14",
     "name": "Building 14",
     "street": "Bristol Terrace",
     "units": "2500 - 2504",
     "startUnit": 2500,
     "endUnit": 2504,
-    "coords": "680,385 680,355 780,355 780,385"
+    "coords": "673,408 586,399 593,339 679,348"
   },
-  {
+{
     "id": "b15",
     "name": "Building 15",
     "street": "Bristol Terrace",
     "units": "2510 - 2514",
     "startUnit": 2510,
     "endUnit": 2514,
-    "coords": "750,290 750,260 850,260 850,290"
+    "coords": "729,430 676,430 676,333 729,333"
   },
-  {
+{
     "id": "b16",
     "name": "Building 16",
     "street": "Bristol Terrace",
     "units": "2520 - 2523",
     "startUnit": 2520,
     "endUnit": 2523,
-    "coords": "775,170 775,140 855,140 855,170"
+    "coords": "653,578 644,476 706,470 716,573"
   },
-  {
+{
     "id": "b17",
     "name": "Building 17",
     "street": "Bristol Terrace",
     "units": "2530 - 2533",
     "startUnit": 2530,
     "endUnit": 2533,
-    "coords": "840,110 810,110 810,190 840,190"
+    "coords": "683,678 677,583 729,580 735,674"
   },
-  {
+{
     "id": "b18",
     "name": "Building 18",
     "street": "Bristol Terrace",
     "units": "2560 - 2563",
     "startUnit": 2560,
     "endUnit": 2563,
-    "coords": "660,670 630,670 630,600 660,600"
+    "coords": "664,683 601,683 601,595 664,595"
   },
-  {
+{
     "id": "b19",
     "name": "Building 19",
     "street": "Bristol Terrace",
     "units": "2570 - 2574",
     "startUnit": 2570,
     "endUnit": 2574,
-    "coords": "560,740 560,680 610,680 610,740"
+    "coords": "623,753 546,753 546,671 623,671"
   },
-  {
+{
     "id": "b20",
     "name": "Building 20",
     "street": "Stratford Drive",
     "units": "2595 - 2597",
     "startUnit": 2595,
     "endUnit": 2597,
-    "coords": "465,580 435,580 435,540 465,540"
+    "coords": "461,649 423,647 428,568 466,570"
   },
-  {
+{
     "id": "b21",
     "name": "Building 21",
     "street": "Stratford Drive",
     "units": "2590 - 2594",
     "startUnit": 2590,
     "endUnit": 2594,
-    "coords": "395,680 365,680 365,600 395,600"
+    "coords": "465,735 431,735 431,661 465,661"
   },
-  {
+{
     "id": "b22",
     "name": "Building 22",
     "street": "Stratford Drive",
     "units": "2580 - 2584",
     "startUnit": 2580,
     "endUnit": 2584,
-    "coords": "305,735 275,735 275,655 305,655"
+    "coords": "470,792 374,792 374,750 470,750"
   },
-  {
+{
     "id": "b23",
     "name": "Building 23",
     "street": "Stratford Drive",
     "units": "2570 - 2574",
     "startUnit": 2570,
     "endUnit": 2574,
-    "coords": "210,800 180,800 180,720 210,720"
+    "coords": "360,799 316,799 316,702 360,702"
   },
-  {
+{
     "id": "b24",
     "name": "Building 24",
     "street": "Stratford Drive",
     "units": "2560 - 2563",
     "startUnit": 2560,
     "endUnit": 2563,
-    "coords": "110,845 80,845 80,785 110,785"
+    "coords": "373,687 344,687 344,609 373,609"
   },
-  {
+{
     "id": "b25",
     "name": "Building 25",
     "street": "Stratford Drive",
     "units": "2510 - 2514",
     "startUnit": 2510,
     "endUnit": 2514,
-    "coords": "190,480 230,450 260,490 220,520"
+    "coords": "318,613 245,548 271,518 344,583"
   },
-  {
+{
     "id": "b26",
     "name": "Building 26",
     "street": "Stratford Drive",
     "units": "2530 - 2533",
     "startUnit": 2530,
     "endUnit": 2533,
-    "coords": "115,550 85,550 85,490 115,490"
+    "coords": "225,721 189,720 193,642 229,644"
   },
-  {
+{
     "id": "b30",
     "name": "Building 30",
     "street": "Stratford Drive",
     "units": "2520 - 2523",
     "startUnit": 2520,
     "endUnit": 2523,
-    "coords": "280,360 250,360 250,300 280,300"
+    "coords": "177,618 100,615 101,578 178,580"
   },
-  {
+{
     "id": "b31",
     "name": "Building 31",
     "street": "Stratford Drive",
     "units": "2500 - 2504",
     "startUnit": 2500,
     "endUnit": 2504,
-    "coords": "370,470 340,470 340,390 370,390"
+    "coords": "183,489 91,489 91,451 183,451"
   },
-  {
+{
     "id": "mf",
     "name": "Maintenance Facility",
     "street": "Stratford Drive",
@@ -262,8 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "startUnit": 0,
     "endUnit": 0,
     "coords": "695,805 655,765 675,745 715,785"
-  }
-];
+  }];
 
   const svgOverlay = document.getElementById('svgOverlay');
   const tooltip = document.getElementById('mapTooltip');
