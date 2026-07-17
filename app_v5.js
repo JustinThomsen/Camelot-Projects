@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2550 - 2554",
     "startUnit": 2550,
     "endUnit": 2554,
-    "coords": "562,594 507,573 544,474 599,495"
+    "coords": "556,595 526,578 576,484 607,501"
   },
 {
     "id": "b13",
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2540 - 2543",
     "startUnit": 2540,
     "endUnit": 2543,
-    "coords": "674,487 596,487 596,441 674,441"
+    "coords": "674,487 587,487 587,441 674,441"
   },
 {
     "id": "b14",
