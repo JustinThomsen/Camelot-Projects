@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2506 - 2511",
     "startUnit": 2506,
     "endUnit": 2511,
-    "coords": "117,326 76,315 106,207 147,219"
+    "coords": "117,326 76,315 106,207 147,219",
+    "singleOutline": true
   },
 {
     "id": "b3",
@@ -318,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if(!svgOverlay) return;
       svgOverlay.innerHTML = '';
       buildingsData.forEach(b => {
-          const totalUnits = (b.id === 'mf') ? 1 : Math.max(1, Math.abs(b.endUnit - b.startUnit) + 1);
+          const totalUnits = (b.id === 'mf' || b.singleOutline) ? 1 : Math.max(1, Math.abs(b.endUnit - b.startUnit) + 1);
           const isDesc = b.endUnit < b.startUnit;
           for (let i = 0; i < totalUnits; i++) {
               const uNum = (b.id === 'mf') ? 'MF' : b.startUnit + (isDesc ? -i : i);
@@ -331,9 +332,10 @@ document.addEventListener('DOMContentLoaded', () => {
               
               poly.addEventListener('mouseover', (e) => {
                   tooltip.classList.add('visible');
+                  const unitLabel = b.singleOutline ? `Units ${b.units}` : `Unit ${uNum}`;
                   tooltip.innerHTML = `
                     <div class="tooltip-title">${b.name}</div>
-                    <div class="tooltip-street">${b.street} | Unit ${uNum}</div>
+                    <div class="tooltip-street">${b.street} | ${unitLabel}</div>
                     <div class="tooltip-phase">Phase: ${capitalize(projectAssignments[b.id][currentProject])}</div>
                   `;
               });
