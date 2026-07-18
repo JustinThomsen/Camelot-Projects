@@ -258,190 +258,181 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       "id": "g1",
       "name": "Garage 1",
-      "street": "Essex Court",
+      "street": "Dover Lane",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "469,51 399,51 399,28 469,28"
+      "startUnit": 1,
+      "endUnit": 6,
+      "coords": "237,312 213,312 213,260 237,260"
     },
     {
       "id": "g2",
       "name": "Garage 2",
       "street": "Dover Lane",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "178,52 140,52 140,32 178,32"
+      "startUnit": 7,
+      "endUnit": 12,
+      "coords": "91,211 62,211 62,273 91,273"
     },
     {
       "id": "g3",
       "name": "Garage 3",
       "street": "Dover Lane",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
+      "startUnit": 13,
+      "endUnit": 17,
       "coords": "90,142 71,142 71,105 90,105"
     },
     {
       "id": "g4",
       "name": "Garage 4",
-      "street": "Essex Court",
+      "street": "Dover Lane",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "533,146 512,146 512,72 533,72"
+      "startUnit": 18,
+      "endUnit": 21,
+      "coords": "178,52 140,52 140,32 178,32"
     },
     {
       "id": "g5",
       "name": "Garage 5",
-      "street": "Essex Court",
+      "street": "Dover Lane",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "317,283 311,256 394,238 400,265"
+      "startUnit": 22,
+      "endUnit": 26,
+      "coords": "254,87 234,87 234,40 254,40"
     },
     {
       "id": "g6",
       "name": "Garage 6",
-      "street": "Essex Court",
+      "street": "Dover Lane",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "533,222 512,222 512,181 533,181"
+      "startUnit": 27,
+      "endUnit": 32,
+      "coords": "263,232 208,232 208,203 263,203"
     },
     {
       "id": "g7",
       "name": "Garage 7",
-      "street": "Dover Lane",
+      "street": "Essex Court",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "263,232 208,232 208,203 263,203"
+      "startUnit": 33,
+      "endUnit": 38,
+      "coords": "277,92 276,41 296,40 297,91"
     },
     {
       "id": "g8",
       "name": "Garage 8",
-      "street": "Dover Lane",
+      "street": "Essex Court",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "238,306 218,306 218,270 238,270"
+      "startUnit": 39,
+      "endUnit": 47,
+      "coords": "317,283 311,256 394,238 400,265"
     },
     {
       "id": "g9",
       "name": "Garage 9",
-      "street": "Dover Lane",
+      "street": "Essex Court",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "145,522 93,522 93,504 145,504"
+      "startUnit": 48,
+      "endUnit": 52,
+      "coords": "533,222 512,222 512,181 533,181"
     },
     {
       "id": "g10",
       "name": "Garage 10",
-      "street": "Dover Lane",
+      "street": "Essex Court",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "143,577 92,577 92,560 143,560"
+      "startUnit": 53,
+      "endUnit": 59,
+      "coords": "533,146 512,146 512,72 533,72"
     },
     {
       "id": "g11",
       "name": "Garage 11",
-      "street": "Dover Lane",
+      "street": "Essex Court",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "237,312 213,312 213,260 237,260"
+      "startUnit": 60,
+      "endUnit": 66,
+      "coords": "469,51 399,51 399,28 469,28"
     },
     {
       "id": "g12",
       "name": "Garage 12",
-      "street": "Dover Lane",
+      "street": "Bristol Terrace",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "279,616 236,581 251,563 293,598"
+      "startUnit": 67,
+      "endUnit": 73,
+      "coords": "678,352 614,352 614,326 678,326"
     },
     {
       "id": "g13",
       "name": "Garage 13",
-      "street": "Dover Lane",
+      "street": "Bristol Terrace",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "263,709 240,709 240,657 263,657"
+      "startUnit": 74,
+      "endUnit": 80,
+      "coords": "747,418 724,418 724,362 747,362"
     },
     {
       "id": "g14",
       "name": "Garage 14",
       "street": "Bristol Terrace",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "587,600 568,593 590,539 609,546"
+      "startUnit": 81,
+      "endUnit": 89,
+      "coords": "768,608 749,608 749,545 768,545"
     },
     {
       "id": "g15",
       "name": "Garage 15",
       "street": "Bristol Terrace",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "768,608 749,608 749,545 768,545"
+      "startUnit": 90,
+      "endUnit": 91,
+      "coords": "763,683 732,683 732,667 763,667"
     },
     {
       "id": "g16",
       "name": "Garage 16",
       "street": "Bristol Terrace",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "763,683 732,683 732,667 763,667"
+      "startUnit": 92,
+      "endUnit": 96,
+      "coords": "582,444 557,444 557,398 582,398"
     },
     {
       "id": "g17",
       "name": "Garage 17",
       "street": "Bristol Terrace",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "582,444 557,444 557,398 582,398"
-    },
-    {
-      "id": "g18",
-      "name": "Garage 18",
-      "street": "Bristol Terrace",
-      "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "562,689 542,689 542,643 562,643"
+      "startUnit": 97,
+      "endUnit": 99,
+      "coords": "587,600 568,593 590,539 609,546"
     },
     {
       "id": "g19",
       "name": "Garage 19",
       "street": "Bristol Terrace",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "678,352 614,352 614,326 678,326"
+      "startUnit": 107,
+      "endUnit": 109,
+      "coords": "562,689 542,689 542,643 562,643"
     },
     {
       "id": "g20",
       "name": "Garage 20",
       "street": "Bristol Terrace",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "747,418 724,418 724,362 747,362"
+      "startUnit": 110,
+      "endUnit": 113,
+      "coords": "539,817 517,805 546,752 568,765"
     },
     {
       "id": "g21",
       "name": "Garage 21",
       "street": "Stratford Drive",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
+      "startUnit": 114,
+      "endUnit": 119,
       "coords": "502,651 472,651 472,606 502,606"
     },
     {
@@ -449,8 +440,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "name": "Garage 22",
       "street": "Stratford Drive",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
+      "startUnit": 120,
+      "endUnit": 124,
       "coords": "502,734 472,734 472,685 502,685"
     },
     {
@@ -458,63 +449,63 @@ document.addEventListener('DOMContentLoaded', () => {
       "name": "Garage 23",
       "street": "Stratford Drive",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "309,794 288,794 288,746 309,746"
+      "startUnit": 125,
+      "endUnit": 130,
+      "coords": "443,818 390,818 390,793 443,793"
     },
     {
       "id": "g24",
       "name": "Garage 24",
       "street": "Stratford Drive",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "539,817 517,805 546,752 568,765"
+      "startUnit": 131,
+      "endUnit": 136,
+      "coords": "309,794 288,794 288,746 309,746"
     },
     {
       "id": "g25",
       "name": "Garage 25",
       "street": "Stratford Drive",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "443,818 390,818 390,793 443,793"
+      "startUnit": 137,
+      "endUnit": 141,
+      "coords": "263,709 240,709 240,657 263,657"
     },
     {
       "id": "g26",
       "name": "Garage 26",
-      "street": "Dover Lane",
+      "street": "Stratford Drive",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "254,87 234,87 234,40 254,40"
+      "startUnit": 142,
+      "endUnit": 145,
+      "coords": "325,666 307,666 307,628 325,628"
     },
     {
       "id": "g27",
       "name": "Garage 27",
-      "street": "Essex Court",
+      "street": "Stratford Drive",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "277,92 276,41 296,40 297,91"
+      "startUnit": 146,
+      "endUnit": 150,
+      "coords": "279,616 236,581 251,563 293,598"
     },
     {
       "id": "g28",
       "name": "Garage 28",
-      "street": "Dover Lane",
+      "street": "Stratford Drive",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "91,211 62,211 62,273 91,273"
+      "startUnit": 151,
+      "endUnit": 155,
+      "coords": "143,577 92,577 92,560 143,560"
     },
     {
       "id": "g29",
       "name": "Garage 29",
-      "street": "Dover Lane",
+      "street": "Stratford Drive",
       "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "325,666 307,666 307,628 325,628"
+      "startUnit": 156,
+      "endUnit": 162,
+      "coords": "145,522 93,522 93,504 145,504"
     }
   ];
 
