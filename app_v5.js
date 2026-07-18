@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2500 - 2505",
     "startUnit": 2500,
     "endUnit": 2505,
-    "coords": "182,367 141,356 170,250 211,261"
+    "coords": "182,367 131,353 160,247 211,261"
   },
 {
     "id": "b2",
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2506 - 2511",
     "startUnit": 2506,
     "endUnit": 2511,
-    "coords": "117,326 76,315 106,207 147,219"
+    "coords": "117,326 66,312 96,204 147,219"
   },
 {
     "id": "b3",
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2512 - 2520",
     "startUnit": 2512,
     "endUnit": 2520,
-    "coords": "137,185 89,185 89,47 137,47"
+    "coords": "137,185 79,185 79,47 137,47"
   },
 {
     "id": "b4",
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2541 - 2545",
     "startUnit": 2541,
     "endUnit": 2545,
-    "coords": "196,138 184,41 226,36 238,133"
+    "coords": "186,139 174,42 226,36 238,133"
   },
 {
     "id": "b5",
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2531 - 2536",
     "startUnit": 2531,
     "endUnit": 2536,
-    "coords": "267,197 157,197 157,156 267,156"
+    "coords": "267,197 147,197 147,150 267,150"
   },
 {
     "id": "b6",
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2530 - 2535",
     "startUnit": 2530,
     "endUnit": 2535,
-    "coords": "312,157 299,48 337,44 349,152"
+    "coords": "302,158 289,49 337,44 349,152"
   },
 {
     "id": "b7",
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2540 - 2543",
     "startUnit": 2540,
     "endUnit": 2543,
-    "coords": "361,205 283,205 283,171 361,171"
+    "coords": "361,205 273,205 273,161 361,161"
   },
 {
     "id": "b8",
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2550 - 2553",
     "startUnit": 2550,
     "endUnit": 2553,
-    "coords": "444,185 366,185 366,151 444,151"
+    "coords": "444,195 366,195 366,151 444,151"
   },
 {
     "id": "b9",
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2500 - 2503",
     "startUnit": 2500,
     "endUnit": 2503,
-    "coords": "499,267 458,266 461,182 501,183"
+    "coords": "499,267 450,266 453,182 501,183"
   },
 {
     "id": "b10",
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2510 - 2515",
     "startUnit": 2510,
     "endUnit": 2515,
-    "coords": "463,167 453,60 491,56 501,163"
+    "coords": "455,168 445,61 491,56 501,163"
   },
 {
     "id": "b11",
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2520 - 2524",
     "startUnit": 2520,
     "endUnit": 2524,
-    "coords": "444,101 358,101 358,63 444,63"
+    "coords": "444,116 358,116 358,63 444,63"
   },
 {
     "id": "b12",
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2550 - 2554",
     "startUnit": 2550,
     "endUnit": 2554,
-    "coords": "556,595 526,578 576,484 607,501"
+    "coords": "556,595 518,576 568,482 607,501"
   },
 {
     "id": "b13",
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2540 - 2543",
     "startUnit": 2540,
     "endUnit": 2543,
-    "coords": "674,487 587,487 587,441 674,441"
+    "coords": "674,487 581,487 581,441 674,441"
   },
 {
     "id": "b14",
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2510 - 2514",
     "startUnit": 2510,
     "endUnit": 2514,
-    "coords": "729,430 670,430 670,333 729,333"
+    "coords": "729,430 670,430 670,308 729,308"
   },
 {
     "id": "b16",
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2530 - 2533",
     "startUnit": 2530,
     "endUnit": 2533,
-    "coords": "683,676 685,592 730,593 727,676"
+    "coords": "675,676 677,592 730,593 727,676"
   },
 {
     "id": "b18",
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2560 - 2563",
     "startUnit": 2560,
     "endUnit": 2563,
-    "coords": "669,617 639,599 600,667 630,685"
+    "coords": "688,621 632,600 592,671 647,691"
   },
 {
     "id": "b19",
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2570 - 2574",
     "startUnit": 2570,
     "endUnit": 2574,
-    "coords": "631,699 594,677 549,753 587,775"
+    "coords": "648,702 588,678 541,757 603,781"
   },
 {
     "id": "b20",
