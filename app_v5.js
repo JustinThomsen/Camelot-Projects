@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2550 - 2554",
     "startUnit": 2550,
     "endUnit": 2554,
-    "coords": "556,595 518,576 568,482 607,501"
+    "coords": "556,595 510,572 560,478 607,501"
   },
 {
     "id": "b13",
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2540 - 2543",
     "startUnit": 2540,
     "endUnit": 2543,
-    "coords": "674,487 581,487 581,441 674,441"
+    "coords": "674,487 581,487 581,439 674,439"
   },
 {
     "id": "b14",
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2595 - 2597",
     "startUnit": 2595,
     "endUnit": 2597,
-    "coords": "461,649 423,647 428,568 466,570"
+    "coords": "461,649 409,646 414,567 466,570"
   },
 {
     "id": "b21",
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2590 - 2594",
     "startUnit": 2590,
     "endUnit": 2594,
-    "coords": "465,735 431,735 431,661 465,661"
+    "coords": "465,735 412,735 412,661 465,661"
   },
 {
     "id": "b22",
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2580 - 2584",
     "startUnit": 2580,
     "endUnit": 2584,
-    "coords": "470,792 374,792 374,750 470,750"
+    "coords": "470,792 374,792 374,740 470,740"
   },
 {
     "id": "b23",
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2570 - 2574",
     "startUnit": 2570,
     "endUnit": 2574,
-    "coords": "360,799 316,799 316,702 360,702"
+    "coords": "372,799 316,799 316,702 372,702"
   },
 {
     "id": "b24",
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2560 - 2563",
     "startUnit": 2560,
     "endUnit": 2563,
-    "coords": "373,687 344,687 344,609 373,609"
+    "coords": "388,687 344,687 344,609 388,609"
   },
 {
     "id": "b25",
@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2510 - 2514",
     "startUnit": 2510,
     "endUnit": 2514,
-    "coords": "318,613 245,548 271,518 344,583"
+    "coords": "318,613 245,548 281,507 354,572"
   },
 {
     "id": "b26",
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2530 - 2533",
     "startUnit": 2530,
     "endUnit": 2533,
-    "coords": "225,721 189,720 193,642 229,644"
+    "coords": "225,721 176,720 180,642 229,644"
   },
 {
     "id": "b30",
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2520 - 2523",
     "startUnit": 2520,
     "endUnit": 2523,
-    "coords": "177,618 100,615 101,578 178,580"
+    "coords": "177,628 100,625 101,578 178,580"
   },
 {
     "id": "b31",
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2500 - 2504",
     "startUnit": 2500,
     "endUnit": 2504,
-    "coords": "183,489 91,489 91,451 183,451"
+    "coords": "183,489 91,489 91,433 183,433"
   }];
 
   const svgOverlay = document.getElementById('svgOverlay');
