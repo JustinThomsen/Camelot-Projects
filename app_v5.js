@@ -538,6 +538,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectAssignments = {};
   const phases = ['completed', 'now', 'next', 'later'];
   
+  const buildingRoofsStatus = {
+      b1: "later",
+      b2: "later",
+      b3: "later",
+      b4: "completed",
+      b5: "later",
+      b6: "later",
+      b7: "later",
+      b8: "completed",
+      b9: "completed",
+      b10: "later",
+      b11: "completed",
+      b12: "completed",
+      b13: "later",
+      b14: "later",
+      b15: "later",
+      b16: "later",
+      b17: "later",
+      b18: "completed",
+      b19: "later",
+      b20: "later",
+      b21: "later",
+      b22: "later",
+      b23: "later",
+      b24: "completed",
+      b25: "completed",
+      b26: "later",
+      b30: "now",
+      b31: "now"
+  };
+
   // Assign schedules to regular buildings
   buildingsData.forEach((b, idx) => {
       projectAssignments[b.id] = { 
@@ -545,10 +576,42 @@ document.addEventListener('DOMContentLoaded', () => {
           landscaping: phases[(idx+1) % 4], 
           siding: phases[(idx+2) % 4], 
           chimneys: idx < 4 ? 'completed' : (idx < 7 ? 'now' : (idx < 13 ? 'next' : 'later')),
-          roofs: phases[(idx+3) % 4],
+          roofs: buildingRoofsStatus[b.id] || 'later',
           garageroofs: 'later' // default placeholder (not rendered)
       };
   });
+
+  const garageRoofsStatus = {
+      g1: "later",
+      g2: "next",
+      g3: "completed",
+      g4: "next",
+      g5: "later",
+      g6: "later",
+      g7: "later",
+      g8: "later",
+      g9: "later",
+      g10: "later",
+      g11: "later",
+      g12: "next",
+      g13: "later",
+      g14: "later",
+      g15: "later",
+      g16: "next",
+      g17: "later",
+      g18: "completed",
+      g19: "later",
+      g20: "later",
+      g21: "later",
+      g22: "later",
+      g23: "later",
+      g24: "next",
+      g25: "later",
+      g26: "completed",
+      g27: "next",
+      g28: "later",
+      g29: "later"
+  };
 
   // Assign schedules to garage blocks
   garagesData.forEach((g, idx) => {
@@ -558,7 +621,7 @@ document.addEventListener('DOMContentLoaded', () => {
           siding: 'later',
           chimneys: 'later',
           roofs: 'later',
-          garageroofs: phases[idx % 4]
+          garageroofs: garageRoofsStatus[g.id] || 'later'
       };
   });
 
@@ -570,6 +633,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderMapOverlays() {
       if(!svgOverlay) return;
       svgOverlay.innerHTML = '';
+
+      if (currentProject === 'major') {
+          return;
+      }
 
       // Determine active dataset based on selection
       const activeDataset = (currentProject === 'garageroofs') ? garagesData : buildingsData;
@@ -680,6 +747,25 @@ document.addEventListener('DOMContentLoaded', () => {
  
   function updateStats() {
       const counts = { completed: 0, now: 0, next: 0, later: 0 };
+      
+      const schedules = document.querySelectorAll('.legend-schedule');
+      const countElems = document.querySelectorAll('.legend-count');
+      const majorLists = document.querySelectorAll('.major-projects-list');
+      const progressBarContainer = document.querySelector('.progress-bar-container');
+
+      if (currentProject === 'major') {
+          schedules.forEach(s => s.style.display = 'none');
+          countElems.forEach(c => c.style.display = 'none');
+          majorLists.forEach(l => l.style.display = 'block');
+          if (progressBarContainer) progressBarContainer.style.display = 'none';
+          return;
+      } else {
+          schedules.forEach(s => s.style.display = 'block');
+          countElems.forEach(c => c.style.display = 'block');
+          majorLists.forEach(l => l.style.display = 'none');
+          if (progressBarContainer) progressBarContainer.style.display = 'block';
+      }
+
       const activeDataset = (currentProject === 'garageroofs') ? garagesData : buildingsData;
       
       activeDataset.forEach(b => {
@@ -718,22 +804,27 @@ document.addEventListener('DOMContentLoaded', () => {
           const activeBuildingPoly = document.querySelector('.map-building.selected');
           if (activeBuildingPoly) {
              const bId = activeBuildingPoly.getAttribute('data-id');
-             const activeDataset = (currentProject === 'garageroofs') ? garagesData : buildingsData;
-             const b = activeDataset.find(x => x.id === bId);
-             if (b) {
-                  const phaseStatus = projectAssignments[b.id][currentProject];
-                  detailProjectTitle.textContent = capitalize(currentProject === 'garageroofs' ? 'Garage Roofs' : currentProject);
-                  detailStatusBadge.textContent = capitalize(phaseStatus);
-                  detailStatusBadge.className = `project-phase-badge ${phaseStatus}`;
-                  detailsCard.className = `active-project-card ${phaseStatus}`;
-                  detailPhase.textContent = `Phase Status: ${capitalize(phaseStatus)}`;
-                  detailDesc.textContent = b.units === 'Garages' 
-                      ? `This garage block is scheduled for roof updates during the ${phaseStatus} phase.`
-                      : `This building is scheduled for ${currentProject} updates during the ${phaseStatus} phase.`;
-             } else {
-                  // If the selected element doesn't exist in the active dataset, reset details card
+             if (currentProject === 'major') {
                   emptyDetails.style.display = 'block';
                   detailsCard.style.display = 'none';
+             } else {
+                  const activeDataset = (currentProject === 'garageroofs') ? garagesData : buildingsData;
+                  const b = activeDataset.find(x => x.id === bId);
+                  if (b) {
+                       const phaseStatus = projectAssignments[b.id][currentProject];
+                       detailProjectTitle.textContent = capitalize(currentProject === 'garageroofs' ? 'Garage Roofs' : currentProject);
+                       detailStatusBadge.textContent = capitalize(phaseStatus);
+                       detailStatusBadge.className = `project-phase-badge ${phaseStatus}`;
+                       detailsCard.className = `active-project-card ${phaseStatus}`;
+                       detailPhase.textContent = `Phase Status: ${capitalize(phaseStatus)}`;
+                       detailDesc.textContent = b.units === 'Garages' 
+                           ? `This garage block is scheduled for roof updates during the ${phaseStatus} phase.`
+                           : `This building is scheduled for ${currentProject} updates during the ${phaseStatus} phase.`;
+                  } else {
+                       // If the selected element doesn't exist in the active dataset, reset details card
+                       emptyDetails.style.display = 'block';
+                       detailsCard.style.display = 'none';
+                  }
              }
           }
           
@@ -741,7 +832,7 @@ document.addEventListener('DOMContentLoaded', () => {
           updateStats();
           
           // Re-apply selection to the same building after re-rendering
-          if (activeBuildingPoly) {
+          if (activeBuildingPoly && currentProject !== 'major') {
               const bId = activeBuildingPoly.getAttribute('data-id');
               svgOverlay.querySelectorAll(`.map-building[data-id="${bId}"]`).forEach(p => p.classList.add('selected'));
           }
