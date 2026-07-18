@@ -379,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
-      "coords": "583,609 564,602 590,539 609,546"
+      "coords": "587,600 568,593 590,539 609,546"
     },
     {
       "id": "g15",
@@ -388,7 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
-      "coords": "768,608 736,608 736,537 768,537"
+      "coords": "768,608 749,608 749,545 768,545"
     },
     {
       "id": "g16",
@@ -397,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
-      "coords": "763,683 732,683 732,605 763,605"
+      "coords": "763,683 732,683 732,667 763,667"
     },
     {
       "id": "g17",
@@ -406,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
-      "coords": "562,448 541,395 571,384 592,436"
+      "coords": "582,444 557,444 557,398 582,398"
     },
     {
       "id": "g18",
@@ -415,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
-      "coords": "562,701 525,701 525,631 562,631"
+      "coords": "562,689 542,689 542,643 562,643"
     },
     {
       "id": "g19",
@@ -424,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
-      "coords": "670,352 578,352 578,320 670,320"
+      "coords": "678,352 614,352 614,326 678,326"
     },
     {
       "id": "g20",
@@ -433,16 +433,16 @@ document.addEventListener('DOMContentLoaded', () => {
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
-      "coords": "719,340 627,340 627,308 719,308"
+      "coords": "747,418 724,418 724,362 747,362"
     },
     {
       "id": "g21",
       "name": "Garage 21",
-      "street": "Bristol Terrace",
+      "street": "Stratford Drive",
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
-      "coords": "747,454 724,454 724,342 747,342"
+      "coords": "502,651 472,651 472,606 502,606"
     },
     {
       "id": "g22",
@@ -451,7 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
-      "coords": "507,651 472,651 472,561 507,561"
+      "coords": "502,734 472,734 472,685 502,685"
     },
     {
       "id": "g23",
@@ -460,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
-      "coords": "507,742 472,742 472,652 507,652"
+      "coords": "309,794 288,794 288,746 309,746"
     },
     {
       "id": "g24",
@@ -469,7 +469,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
-      "coords": "309,794 288,794 288,746 309,746"
+      "coords": "539,817 517,805 546,752 568,765"
     },
     {
       "id": "g25",
@@ -478,20 +478,11 @@ document.addEventListener('DOMContentLoaded', () => {
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
-      "coords": "539,817 517,805 546,752 568,765"
+      "coords": "443,818 390,818 390,793 443,793"
     },
     {
       "id": "g26",
       "name": "Garage 26",
-      "street": "Stratford Drive",
-      "units": "Garages",
-      "startUnit": 0,
-      "endUnit": 0,
-      "coords": "443,818 390,818 390,793 443,793"
-    },
-    {
-      "id": "g27",
-      "name": "Garage 27",
       "street": "Dover Lane",
       "units": "Garages",
       "startUnit": 0,
@@ -499,13 +490,22 @@ document.addEventListener('DOMContentLoaded', () => {
       "coords": "254,87 234,87 234,40 254,40"
     },
     {
-      "id": "g28",
-      "name": "Garage 28",
+      "id": "g27",
+      "name": "Garage 27",
       "street": "Essex Court",
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
       "coords": "277,92 276,41 296,40 297,91"
+    },
+    {
+      "id": "g28",
+      "name": "Garage 28",
+      "street": "Dover Lane",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "91,211 62,211 62,273 91,273"
     },
     {
       "id": "g29",
@@ -514,7 +514,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "units": "Garages",
       "startUnit": 0,
       "endUnit": 0,
-      "coords": "91,211 62,211 62,273 91,273"
+      "coords": "325,666 307,666 307,628 325,628"
     }
   ];
 
