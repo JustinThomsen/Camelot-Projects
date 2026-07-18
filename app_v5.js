@@ -538,80 +538,62 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectAssignments = {};
   const phases = ['completed', 'now', 'next', 'later'];
   
-  const buildingRoofsStatus = {
-      b1: "later",
-      b2: "later",
-      b3: "later",
-      b4: "completed",
-      b5: "later",
-      b6: "later",
-      b7: "later",
-      b8: "completed",
-      b9: "completed",
-      b10: "later",
-      b11: "completed",
-      b12: "completed",
-      b13: "later",
-      b14: "later",
-      b15: "later",
-      b16: "later",
-      b17: "later",
-      b18: "completed",
-      b19: "later",
-      b20: "later",
-      b21: "later",
-      b22: "later",
-      b23: "later",
-      b24: "completed",
-      b25: "completed",
-      b26: "later",
-      b30: "now",
-      b31: "now"
+  const buildingRoofsLastReplaced = {
+      b18: 2003, b8: 2004, b25: 2004, b4: 2005, b9: 2005, b11: 2005, b12: 2005, b24: 2005,
+      b30: 2006, b31: 2006, b3: 2010, b1: 2012, b26: 2012, b2: 2014, b6: 2015, b10: 2016,
+      b14: 2016, b13: 2017, b15: 2017, b19: 2020, b23: 2020, b16: 2021, b21: 2022, b17: 2023,
+      b20: 2023, b22: 2023, b7: 2024, b5: 2024
   };
+  const buildingRoofsNextReroof = {
+      b18: 2023, b8: 2024, b25: 2024, b4: 2025, b9: 2025, b11: 2025, b12: 2025, b24: 2025,
+      b30: 2026, b31: 2026, b3: 2030, b1: 2032, b26: 2032, b2: 2034, b6: 2035, b10: 2036,
+      b14: 2036, b13: 2037, b15: 2037, b19: 2040, b23: 2040, b16: 2041, b21: 2042, b17: 2043,
+      b20: 2043, b22: 2043, b7: 2044, b5: 2044
+  };
+
+  const garageRoofsLastReplaced = {
+      g12: 2007, g24: 2007, g27: 2007, g2: 2008, g4: 2008, g16: 2008, g8: 2009, g20: 2012,
+      g1: 2012, g6: 2012, g17: 2012, g19: 2012, g5: 2013, g7: 2013, g11: 2013, g13: 2015,
+      g14: 2016, g15: 2016, g21: 2017, g28: 2017, g9: 2018, g10: 2018, g29: 2018, g22: 2019,
+      g23: 2019, g25: 2019, g26: 2021, g3: 2023, g18: 2023
+  };
+  const garageRoofsNextReplace = {
+      g12: 2027, g24: 2027, g27: 2027, g2: 2028, g4: 2028, g16: 2028, g8: 2029, g20: 2032,
+      g1: 2032, g6: 2032, g17: 2032, g19: 2032, g5: 2033, g7: 2033, g11: 2033, g13: 2035,
+      g14: 2036, g15: 2036, g21: 2037, g28: 2037, g9: 2038, g10: 2038, g29: 2038, g22: 2039,
+      g23: 2039, g25: 2039, g26: 2041, g3: 2043, g18: 2043
+  };
+
+  // Helper to determine status based on last replaced and next due years
+  function getPhaseStatus(lastReplaced, nextDue) {
+      if (lastReplaced >= 2016) {
+          return 'completed';
+      } else if (nextDue <= 2026) {
+          return 'now';
+      } else if (nextDue === 2027 || nextDue === 2028) {
+          return 'next';
+      } else {
+          return 'later';
+      }
+  }
 
   // Assign schedules to regular buildings
   buildingsData.forEach((b, idx) => {
+      // Mock deterministic lifecycle data for other plans
+      const fencesLast = 2008 + (idx * 7) % 17;
+      const landscapingLast = 2010 + (idx * 5) % 15;
+      const sidingLast = 1998 + (idx * 11) % 27;
+      const chimneysLast = 2002 + (idx * 3) % 23;
+
       projectAssignments[b.id] = { 
-          fences: phases[idx % 4], 
-          landscaping: phases[(idx+1) % 4], 
-          siding: phases[(idx+2) % 4], 
-          chimneys: idx < 4 ? 'completed' : (idx < 7 ? 'now' : (idx < 13 ? 'next' : 'later')),
-          roofs: buildingRoofsStatus[b.id] || 'later',
-          garageroofs: 'later' // default placeholder (not rendered)
+          fences: getPhaseStatus(fencesLast, fencesLast + 15), 
+          landscaping: getPhaseStatus(landscapingLast, landscapingLast + 10), 
+          siding: getPhaseStatus(sidingLast, sidingLast + 25), 
+          chimneys: getPhaseStatus(chimneysLast, chimneysLast + 20),
+          roofs: getPhaseStatus(buildingRoofsLastReplaced[b.id] || 2000, buildingRoofsNextReroof[b.id] || 2020),
+          garageroofs: 'later' // default placeholder
       };
   });
-
-  const garageRoofsStatus = {
-      g1: "later",
-      g2: "next",
-      g3: "completed",
-      g4: "next",
-      g5: "later",
-      g6: "later",
-      g7: "later",
-      g8: "later",
-      g9: "later",
-      g10: "later",
-      g11: "later",
-      g12: "next",
-      g13: "later",
-      g14: "later",
-      g15: "later",
-      g16: "next",
-      g17: "later",
-      g18: "completed",
-      g19: "later",
-      g20: "later",
-      g21: "later",
-      g22: "later",
-      g23: "later",
-      g24: "next",
-      g25: "later",
-      g26: "completed",
-      g27: "next",
-      g28: "later",
-      g29: "later"
-  };
 
   // Assign schedules to garage blocks
   garagesData.forEach((g, idx) => {
@@ -621,7 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
           siding: 'later',
           chimneys: 'later',
           roofs: 'later',
-          garageroofs: garageRoofsStatus[g.id] || 'later'
+          garageroofs: getPhaseStatus(garageRoofsLastReplaced[g.id] || 2000, garageRoofsNextReplace[g.id] || 2020)
       };
   });
 
