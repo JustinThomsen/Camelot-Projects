@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "units": "2510 - 2514",
     "startUnit": 2510,
     "endUnit": 2514,
-    "coords": "729,430 670,430 670,308 729,308"
+    "coords": "729,430 670,430 670,333 729,333"
   },
 {
     "id": "b16",
