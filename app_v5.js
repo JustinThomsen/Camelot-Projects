@@ -291,12 +291,41 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderMapOverlays() {
       if(!svgOverlay) return;
       svgOverlay.innerHTML = '';
+
+      // Create a mask to hide the overlapping portion of Building 18 under Building 17
+      const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+      const mask = document.createElementNS('http://www.w3.org/2000/svg', 'mask');
+      mask.setAttribute('id', 'b18-mask');
+
+      const whiteRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      whiteRect.setAttribute('x', '0');
+      whiteRect.setAttribute('y', '0');
+      whiteRect.setAttribute('width', '789');
+      whiteRect.setAttribute('height', '1024');
+      whiteRect.setAttribute('fill', 'white');
+      mask.appendChild(whiteRect);
+
+      const b17 = buildingsData.find(x => x.id === 'b17');
+      if (b17) {
+          const blackPoly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+          blackPoly.setAttribute('points', b17.coords);
+          blackPoly.setAttribute('fill', 'black');
+          mask.appendChild(blackPoly);
+      }
+
+      defs.appendChild(mask);
+      svgOverlay.appendChild(defs);
+
       buildingsData.forEach(b => {
           const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
           poly.setAttribute('points', b.coords);
           poly.setAttribute('class', `map-building ${projectAssignments[b.id][currentProject]}`);
           poly.setAttribute('data-id', b.id);
           poly.setAttribute('data-unit', b.units);
+          
+          if (b.id === 'b18') {
+              poly.setAttribute('mask', 'url(#b18-mask)');
+          }
           
           poly.addEventListener('mouseover', (e) => {
               tooltip.classList.add('visible');
