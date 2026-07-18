@@ -254,6 +254,270 @@ document.addEventListener('DOMContentLoaded', () => {
     "coords": "183,489 91,489 91,433 183,433"
   }];
 
+  const garagesData = [
+    {
+      "id": "g1",
+      "name": "Garage 1",
+      "street": "Essex Court",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "469,51 399,51 399,28 469,28"
+    },
+    {
+      "id": "g2",
+      "name": "Garage 2",
+      "street": "Dover Lane",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "178,52 140,52 140,32 178,32"
+    },
+    {
+      "id": "g3",
+      "name": "Garage 3",
+      "street": "Dover Lane",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "90,142 71,142 71,105 90,105"
+    },
+    {
+      "id": "g4",
+      "name": "Garage 4",
+      "street": "Essex Court",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "533,146 512,146 512,72 533,72"
+    },
+    {
+      "id": "g5",
+      "name": "Garage 5",
+      "street": "Essex Court",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "317,283 311,256 394,238 400,265"
+    },
+    {
+      "id": "g6",
+      "name": "Garage 6",
+      "street": "Essex Court",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "533,222 512,222 512,181 533,181"
+    },
+    {
+      "id": "g7",
+      "name": "Garage 7",
+      "street": "Dover Lane",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "263,232 208,232 208,203 263,203"
+    },
+    {
+      "id": "g8",
+      "name": "Garage 8",
+      "street": "Dover Lane",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "238,306 218,306 218,270 238,270"
+    },
+    {
+      "id": "g9",
+      "name": "Garage 9",
+      "street": "Dover Lane",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "145,522 93,522 93,504 145,504"
+    },
+    {
+      "id": "g10",
+      "name": "Garage 10",
+      "street": "Dover Lane",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "143,577 92,577 92,560 143,560"
+    },
+    {
+      "id": "g11",
+      "name": "Garage 11",
+      "street": "Dover Lane",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "237,312 213,312 213,260 237,260"
+    },
+    {
+      "id": "g12",
+      "name": "Garage 12",
+      "street": "Dover Lane",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "279,616 236,581 251,563 293,598"
+    },
+    {
+      "id": "g13",
+      "name": "Garage 13",
+      "street": "Dover Lane",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "263,709 240,709 240,657 263,657"
+    },
+    {
+      "id": "g14",
+      "name": "Garage 14",
+      "street": "Bristol Terrace",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "583,609 564,602 590,539 609,546"
+    },
+    {
+      "id": "g15",
+      "name": "Garage 15",
+      "street": "Bristol Terrace",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "768,608 736,608 736,537 768,537"
+    },
+    {
+      "id": "g16",
+      "name": "Garage 16",
+      "street": "Bristol Terrace",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "763,683 732,683 732,605 763,605"
+    },
+    {
+      "id": "g17",
+      "name": "Garage 17",
+      "street": "Bristol Terrace",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "562,448 541,395 571,384 592,436"
+    },
+    {
+      "id": "g18",
+      "name": "Garage 18",
+      "street": "Bristol Terrace",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "562,701 525,701 525,631 562,631"
+    },
+    {
+      "id": "g19",
+      "name": "Garage 19",
+      "street": "Bristol Terrace",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "670,352 578,352 578,320 670,320"
+    },
+    {
+      "id": "g20",
+      "name": "Garage 20",
+      "street": "Bristol Terrace",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "719,340 627,340 627,308 719,308"
+    },
+    {
+      "id": "g21",
+      "name": "Garage 21",
+      "street": "Bristol Terrace",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "747,454 724,454 724,342 747,342"
+    },
+    {
+      "id": "g22",
+      "name": "Garage 22",
+      "street": "Stratford Drive",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "507,651 472,651 472,561 507,561"
+    },
+    {
+      "id": "g23",
+      "name": "Garage 23",
+      "street": "Stratford Drive",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "507,742 472,742 472,652 507,652"
+    },
+    {
+      "id": "g24",
+      "name": "Garage 24",
+      "street": "Stratford Drive",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "309,794 288,794 288,746 309,746"
+    },
+    {
+      "id": "g25",
+      "name": "Garage 25",
+      "street": "Stratford Drive",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "539,817 517,805 546,752 568,765"
+    },
+    {
+      "id": "g26",
+      "name": "Garage 26",
+      "street": "Stratford Drive",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "443,818 390,818 390,793 443,793"
+    },
+    {
+      "id": "g27",
+      "name": "Garage 27",
+      "street": "Dover Lane",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "254,87 234,87 234,40 254,40"
+    },
+    {
+      "id": "g28",
+      "name": "Garage 28",
+      "street": "Essex Court",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "277,92 276,41 296,40 297,91"
+    },
+    {
+      "id": "g29",
+      "name": "Garage 29",
+      "street": "Dover Lane",
+      "units": "Garages",
+      "startUnit": 0,
+      "endUnit": 0,
+      "coords": "91,211 62,211 62,273 91,273"
+    }
+  ];
+
   const svgOverlay = document.getElementById('svgOverlay');
   const tooltip = document.getElementById('mapTooltip');
   const detailsPanel = document.getElementById('detailsPanel');
@@ -273,13 +537,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const projectAssignments = {};
   const phases = ['completed', 'now', 'next', 'later'];
+  
+  // Assign schedules to regular buildings
   buildingsData.forEach((b, idx) => {
       projectAssignments[b.id] = { 
           fences: phases[idx % 4], 
           landscaping: phases[(idx+1) % 4], 
           siding: phases[(idx+2) % 4], 
           chimneys: idx < 4 ? 'completed' : (idx < 7 ? 'now' : (idx < 13 ? 'next' : 'later')),
-          roofs: phases[(idx+3) % 4] 
+          roofs: phases[(idx+3) % 4],
+          garageroofs: 'later' // default placeholder (not rendered)
+      };
+  });
+
+  // Assign schedules to garage blocks
+  garagesData.forEach((g, idx) => {
+      projectAssignments[g.id] = {
+          fences: 'later',
+          landscaping: 'later',
+          siding: 'later',
+          chimneys: 'later',
+          roofs: 'later',
+          garageroofs: phases[idx % 4]
       };
   });
 
@@ -292,44 +571,49 @@ document.addEventListener('DOMContentLoaded', () => {
       if(!svgOverlay) return;
       svgOverlay.innerHTML = '';
 
-      // Create a mask to hide the overlapping portion of Building 18 under Building 17
-      const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-      const mask = document.createElementNS('http://www.w3.org/2000/svg', 'mask');
-      mask.setAttribute('id', 'b18-mask');
+      // Determine active dataset based on selection
+      const activeDataset = (currentProject === 'garageroofs') ? garagesData : buildingsData;
 
-      const whiteRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-      whiteRect.setAttribute('x', '0');
-      whiteRect.setAttribute('y', '0');
-      whiteRect.setAttribute('width', '789');
-      whiteRect.setAttribute('height', '1024');
-      whiteRect.setAttribute('fill', 'white');
-      mask.appendChild(whiteRect);
+      if (currentProject !== 'garageroofs') {
+          // Create a mask to hide the overlapping portion of Building 18 under Building 17
+          const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+          const mask = document.createElementNS('http://www.w3.org/2000/svg', 'mask');
+          mask.setAttribute('id', 'b18-mask');
 
-      const b17 = buildingsData.find(x => x.id === 'b17');
-      if (b17) {
-          const blackPoly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-          blackPoly.setAttribute('points', b17.coords);
-          blackPoly.setAttribute('fill', 'black');
-          mask.appendChild(blackPoly);
+          const whiteRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+          whiteRect.setAttribute('x', '0');
+          whiteRect.setAttribute('y', '0');
+          whiteRect.setAttribute('width', '789');
+          whiteRect.setAttribute('height', '1024');
+          whiteRect.setAttribute('fill', 'white');
+          mask.appendChild(whiteRect);
+
+          const b17 = buildingsData.find(x => x.id === 'b17');
+          if (b17) {
+              const blackPoly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+              blackPoly.setAttribute('points', b17.coords);
+              blackPoly.setAttribute('fill', 'black');
+              mask.appendChild(blackPoly);
+          }
+
+          defs.appendChild(mask);
+          svgOverlay.appendChild(defs);
       }
 
-      defs.appendChild(mask);
-      svgOverlay.appendChild(defs);
-
-      buildingsData.forEach(b => {
+      activeDataset.forEach(b => {
           const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
           poly.setAttribute('points', b.coords);
           poly.setAttribute('class', `map-building ${projectAssignments[b.id][currentProject]}`);
           poly.setAttribute('data-id', b.id);
           poly.setAttribute('data-unit', b.units);
           
-          if (b.id === 'b18') {
+          if (b.id === 'b18' && currentProject !== 'garageroofs') {
               poly.setAttribute('mask', 'url(#b18-mask)');
           }
           
           poly.addEventListener('mouseover', (e) => {
               tooltip.classList.add('visible');
-              const unitLabel = `Units ${b.units}`;
+              const unitLabel = b.units === 'Garages' ? 'Garage Block' : `Units ${b.units}`;
               tooltip.innerHTML = `
                 <div class="tooltip-title">${b.name}</div>
                 <div class="tooltip-street">${b.street} | ${unitLabel}</div>
@@ -349,19 +633,21 @@ document.addEventListener('DOMContentLoaded', () => {
           poly.addEventListener('click', () => {
               emptyDetails.style.display = 'none';
               detailsCard.style.display = 'block';
-
+ 
               detailBldgName.textContent = b.name;
               detailRoadBadge.textContent = b.street;
-              detailUnits.textContent = `Units ${b.units}`;
+              detailUnits.textContent = b.units === 'Garages' ? 'Garage Block' : `Units ${b.units}`;
               
               const phaseStatus = projectAssignments[b.id][currentProject];
-              detailProjectTitle.textContent = capitalize(currentProject);
+              detailProjectTitle.textContent = capitalize(currentProject === 'garageroofs' ? 'Garage Roofs' : currentProject);
               detailStatusBadge.textContent = capitalize(phaseStatus);
               detailStatusBadge.className = `project-phase-badge ${phaseStatus}`;
               detailsCard.className = `active-project-card ${phaseStatus}`;
               
               detailPhase.textContent = `Phase Status: ${capitalize(phaseStatus)}`;
-              detailDesc.textContent = `This building is scheduled for ${currentProject} updates during the ${phaseStatus} phase.`;
+              detailDesc.textContent = b.units === 'Garages' 
+                  ? `This garage block is scheduled for roof updates during the ${phaseStatus} phase.`
+                  : `This building is scheduled for ${currentProject} updates during the ${phaseStatus} phase.`;
               
               svgOverlay.querySelectorAll('.map-building').forEach(p => p.classList.remove('selected'));
               poly.classList.add('selected');
@@ -371,7 +657,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       applyFilter();
   }
-
+ 
   function applyFilter() {
       const polygons = svgOverlay.querySelectorAll('.map-building');
       polygons.forEach(poly => {
@@ -391,17 +677,19 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       });
   }
-
+ 
   function updateStats() {
       const counts = { completed: 0, now: 0, next: 0, later: 0 };
-      buildingsData.forEach(b => {
+      const activeDataset = (currentProject === 'garageroofs') ? garagesData : buildingsData;
+      
+      activeDataset.forEach(b => {
           const phase = projectAssignments[b.id][currentProject];
           if (counts[phase] !== undefined) {
               counts[phase]++;
           }
       });
       
-      const total = buildingsData.length;
+      const total = activeDataset.length;
       
       for (const phase in counts) {
           const count = counts[phase];
@@ -418,7 +706,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       }
   }
-
+ 
   const tabs = document.querySelectorAll('.tab-btn');
   tabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -426,19 +714,26 @@ document.addEventListener('DOMContentLoaded', () => {
           tab.classList.add('active');
           currentProject = tab.dataset.project;
           
-          // update details panel if a building is selected
+          // update details panel if a building/garage is selected
           const activeBuildingPoly = document.querySelector('.map-building.selected');
           if (activeBuildingPoly) {
              const bId = activeBuildingPoly.getAttribute('data-id');
-             const b = buildingsData.find(x => x.id === bId);
+             const activeDataset = (currentProject === 'garageroofs') ? garagesData : buildingsData;
+             const b = activeDataset.find(x => x.id === bId);
              if (b) {
                   const phaseStatus = projectAssignments[b.id][currentProject];
-                  detailProjectTitle.textContent = capitalize(currentProject);
+                  detailProjectTitle.textContent = capitalize(currentProject === 'garageroofs' ? 'Garage Roofs' : currentProject);
                   detailStatusBadge.textContent = capitalize(phaseStatus);
                   detailStatusBadge.className = `project-phase-badge ${phaseStatus}`;
                   detailsCard.className = `active-project-card ${phaseStatus}`;
                   detailPhase.textContent = `Phase Status: ${capitalize(phaseStatus)}`;
-                  detailDesc.textContent = `This building is scheduled for ${currentProject} updates during the ${phaseStatus} phase.`;
+                  detailDesc.textContent = b.units === 'Garages' 
+                      ? `This garage block is scheduled for roof updates during the ${phaseStatus} phase.`
+                      : `This building is scheduled for ${currentProject} updates during the ${phaseStatus} phase.`;
+             } else {
+                  // If the selected element doesn't exist in the active dataset, reset details card
+                  emptyDetails.style.display = 'block';
+                  detailsCard.style.display = 'none';
              }
           }
           

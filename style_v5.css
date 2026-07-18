@@ -142,9 +142,7 @@ a {
   gap: 0.4rem;
 }
 
-.project-tabs-grid .tab-btn:nth-child(5) {
-  grid-column: span 2; /* Make the fifth project span full width */
-}
+/* No special child span rules needed for a balanced 3x2 grid of 6 tabs */
 
 .tab-btn {
   background-color: rgba(255, 255, 255, 0.02);
