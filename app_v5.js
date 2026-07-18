@@ -406,6 +406,15 @@ document.addEventListener('DOMContentLoaded', () => {
       "units": "Garages",
       "startUnit": 97,
       "endUnit": 99,
+      "coords": "646,580 627,580 627,543 646,543"
+    },
+    {
+      "id": "g18",
+      "name": "Garage 18",
+      "street": "Bristol Terrace",
+      "units": "Garages",
+      "startUnit": 100,
+      "endUnit": 106,
       "coords": "587,600 568,593 590,539 609,546"
     },
     {
